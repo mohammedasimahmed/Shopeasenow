@@ -1,8 +1,5 @@
-# React + Vite
+**Welcome to Our Ecommerce Platform!**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Our ecommerce platform offers a wide range of features catering to diverse needs. From a user-friendly admin panel for effortless management to intelligent product recommendations enhancing customer experience, we have you covered.
+---
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
