@@ -1,14 +1,16 @@
-// import { Routes, Route } from "react-router-dom"
-import Navbar from "./Components/Navbar/Navbar.jsx"
-import WhatsShopEase from "./Components/WhatsShopEase.jsx"
-function App() {
+import { Routes, Route } from "react-router-dom";
+import Hero from "./Pages/Hero.jsx";
+import Signup from "./Pages/SignUp.jsx";
 
+function App() {
   return (
     <>
-      <Navbar />
-      <WhatsShopEase />
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
