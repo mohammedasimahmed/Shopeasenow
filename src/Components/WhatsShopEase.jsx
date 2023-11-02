@@ -6,7 +6,7 @@ export default function WhatsShopEase() {
     <div className="flex flex-row" id="home-link">
       <div className="relative isolate px-6 lg:px-8 w-[100%]">
         <div
-          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+          className="absolute inset-x-0 -top-40 -z-88 transform-gpu overflow-hidden blur-3xl sm:-top-80"
           aria-hidden="true"
         >
           <div
@@ -19,11 +19,11 @@ export default function WhatsShopEase() {
         </div>
         <div className="mx-auto mt-[-80px] max-w-4xl py-32 sm:py-48 lg:py-56">
           <div className="text-center px-3">
-            <h className="text-6xl text-[#51D6FF] font-bold tracking-tight text-[#51D6FF] sm:text-6xl">
+            <h className="text-6xl text-[#51D6FF] font-bold tracking-tight sm:text-6xl">
               ShopEaseNow:
               <br />
               <span className="text-3xl font-bold tracking-tight text-gray-100 ">
-              Explore Tailored Products and Services Just for You!
+                Explore Tailored Products and Services Just for You!
               </span>
             </h>
             <p className="mt-6 text-lg leading-8 text-gray-600">
@@ -35,7 +35,7 @@ export default function WhatsShopEase() {
               service solutions with us.
               <br />
               {/* Lets see the  */}
-              <span className="mt-6 text-lg leading-8 text-gray-600 tracking-tight leading-none text-[#51D6FF] md:text-lg lg:text-lg dark:text-[#51D6FF]">
+              <span className="mt-6 text-lg leading-8 text-gray-600 tracking-tight md:text-lg lg:text-lg dark:text-[#51D6FF]">
                 <Typewriter
                   words={["Shop smart, shop with confidence.", "Browse, choose, experience excellence", "Navigate the art of modern shopping"]}
                   loop={10000}
@@ -100,7 +100,6 @@ export default function WhatsShopEase() {
           />
         </div>
       </div>
-      {/* <ShareSocials /> */}
     </div>
   );
 }
