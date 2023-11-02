@@ -3,9 +3,9 @@ import WhatsShopEase from '../Components/WhatsShopEase'
 const Hero = () => {
     return (
         <>
-            <div className="flex flex-row">
+            <div className="flex">
                 <Navbar />
-                <div>
+                <div className='flex justify-center items-center w-full h-full'>
                     <WhatsShopEase />
                 </div>
             </div>
