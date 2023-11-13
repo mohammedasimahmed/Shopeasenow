@@ -1,36 +1,26 @@
-import {
-  ArrowPathIcon,
-  CloudArrowUpIcon,
-  FingerPrintIcon,
-  UserGroupIcon,
-} from "@heroicons/react/24/outline";
 import { motion, useInView, useAnimation } from "framer-motion";
 import { useEffect, useRef } from "react";
 
 const features = [
   {
-    name: "Easy Sharing",
+    name: "Explore Catalog",
     description:
-      "Share your surplus food and unused items with those in need. Making a positive impact has never been easier!",
-    icon: CloudArrowUpIcon,
+    "Discover a world of options. Our diverse catalog offers a wide range of products to suit your needs and desires!",
   },
   {
-    name: "Secure Connections",
+    name: "Explore Services",
     description:
-      "Rest assured that your transactions are secure and protected. Your safety and privacy are our top priorities.",
-    icon: UserGroupIcon,
+      "Dive into our service selection. From convenience to expertise, we have you covered. Explore the possibilities today!",
   },
   {
-    name: "Effortless Donations",
+    name: "Easy Browsing",
     description:
-      "Make a difference with simple and efficient donation queues. Your contributions create a ripple of positive change.",
-    icon: ArrowPathIcon,
+      "Simplify your shopping experience with easy browsing. Navigate our offerings effortlessly, find what you need, and shop stress-free!",
   },
   {
     name: "User Privacy",
     description:
       "We prioritize the security of your data and personal information. Your identity and privacy are always protected.",
-    icon: FingerPrintIcon,
   },
 ];
 
@@ -54,8 +44,8 @@ export default function FeaturesSection() {
   }, [isInView]);
 
   return (
-    <section>
-      <div className="bg-white py-24 sm:py-32" id="feature-link">
+    <section className="w-full">
+      <div className="bg-white py-24 sm:py-32 w-full" id="feature-link">
         <motion.div
           ref={ref}
           variants={{
@@ -70,18 +60,18 @@ export default function FeaturesSection() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:text-center">
               <h2 className="text-base font-semibold leading-7 text-indigo-600">
-                Join SoulShare
+                Shop ShopEaseNow
               </h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Empowering
+                Experience
                 <span className="px-2 text-white bg-blue-600 rounded dark:bg-blue-500 ml-2">
-                  Positive Change
+                  Quality
                 </span>
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Make a difference by sharing your surplus resources with those
-                who need them. SoulShare offers you a seamless platform to
-                contribute and create meaningful impact.
+                Discover unbeatable value and exceptional quality! Explore our
+                curated selection of products and services to elevate your
+                shopping experience. Shop now to enjoy the best in class
               </p>
             </div>
             <motion.div
@@ -95,10 +85,7 @@ export default function FeaturesSection() {
                     <div key={feature.name} className="relative pl-16">
                       <dt className="text-base font-semibold leading-7 text-gray-900">
                         <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
-                          <feature.icon
-                            className="h-6 w-6 text-white"
-                            aria-hidden="true"
-                          />
+              
                         </div>
                         {feature.name}
                       </dt>

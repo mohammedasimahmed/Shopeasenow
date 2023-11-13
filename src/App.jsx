@@ -13,9 +13,10 @@ const Browse = lazy(() => import("./Pages/browse"));
 const CardPage = lazy(() => import("./Pages/CardPage"));
 const PageNotFound = lazy(() => import("./Pages/PageNotFound"));
 const Profile = lazy(() => import("./Pages/Profile"));
+const Services = lazy(() => import("./Pages/Services"));
 const ChatBox = lazy(() => import("./Components/chatBox"));
+const Navbar = lazy(() => import("./Components/Navbar"));
 const PrivateRoutes = lazy(() => import("./PrivateRoute"));
-
 
 function App() {
   const toastConfig = {
@@ -25,19 +26,23 @@ function App() {
     <>
       <ToastContainer {...toastConfig} />
       <Suspense fallback={<Loader />}>
+
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/contact" element={<ContactUs />} />
-          <Route path="/verifyemail/:userId/productType/" element={<OtpBox />} />
+          <Route
+            path="/verifyemail/:userId/productType/"
+            element={<OtpBox />}
+          />
           <Route path="/browse" element={<Browse />} />
           <Route path="/card/:productId" element={<CardPage />} />
           <Route path="*" element={<PageNotFound />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/profile" element={<Profile />} />
-            <Route path="/yourChats" element={<ChatBox />} />
           </Route>
+          <Route path="/services" element={<Services />} />
         </Routes>
       </Suspense>
     </>

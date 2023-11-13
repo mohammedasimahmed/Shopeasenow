@@ -58,10 +58,10 @@ const userSchema = mongoose.Schema(
       type: String,
     },
     role: {
-      type: String
+      type: String,
     },
     description: {
-      type: String
+      type: String,
     },
     isVerified: { type: Boolean, default: false, required: true },
     markedForDeletion: { type: Boolean, default: false, required: true },

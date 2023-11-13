@@ -5,24 +5,21 @@ import { Typewriter } from "react-simple-typewriter";
 const people = [
   {
     name: "Shishiro",
-    role: "Frontend Developer",
-    imageUrl:
-      "https://api.dicebear.com/5.x/initials/svg?seed=shishiro",
+    role: "Member 1",
+    imageUrl: "https://api.dicebear.com/5.x/initials/svg?seed=shishiro",
   },
   {
-    name: "Saketh Ram",
-    role: "Backend Developer",
-    imageUrl:
-      "https://api.dicebear.com/5.x/initials/svg?seed=saketh ram",
+    name: "Asim",
+    role: "Member 2",
+    imageUrl: "https://api.dicebear.com/5.x/initials/svg?seed=asim",
   },
   {
-    name: "Kota-karthik",
-    role: "Frontend Developer",
-    imageUrl:
-      "https://api.dicebear.com/5.x/initials/svg?seed=kota",
+    name: "Nimesh",
+    role: "Member 3",
+    imageUrl: "https://api.dicebear.com/5.x/initials/svg?seed=nimesh",
   },
 ];
-const AboutUs = () => {
+const Team = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const mainControls = useAnimation();
@@ -69,7 +66,7 @@ const AboutUs = () => {
                 <div className="max-w-[100%]">
                   <span className="text-4xl font-extrabold text-gray-600 mb-4 text-4xl  tracking-tight leading-none text-gray-900 md:text-5xl lg:text-4xl dark:text-[#51D6FF]">
                     <Typewriter
-                      words={["Crafting Dreams", "Building Futures"]}
+                      words={["Shop Smile Repeat", "Shop smart , live smart"]}
                       loop={10000}
                       cursor
                       cursorStyle="_"
@@ -82,21 +79,16 @@ const AboutUs = () => {
                   <h2 className="text-3xl font-bold tracking-tight leading-none text-[white] sm:text-4xl ">
                     The{" "}
                     <span className="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
-                      Heart
+                      ultimate
                     </span>{" "}
-                    and{" "}
-                    <span className="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
-                      Soul
-                    </span>{" "}
-                    Behind Our Purpose
+                    shopping <span>destination</span>
                   </h2>
                   <p className="mt-6  leading-8  mb-6 text-lg font-normal text-gray-500">
-                    Guided by a passion for positive change, we are more than a
-                    platform. We`re a collective of dream weavers, weaving
-                    threads of hope through every garment donated and every meal
-                    shared. Our journey is an artful symphony of compassion,
-                    connecting hearts to hands and giving voice to the silent
-                    needs of communities.
+                    Welcome to ShopEaseNow, where convenience meets
+                    style. We bring the world of fashion and lifestyle to your
+                    fingertips. Explore a curated collection of trending
+                    products, shop with ease, and experience a world of
+                    effortless elegance. Discover the future of shopping with us
                   </p>
                 </div>
               </motion.div>
@@ -152,4 +144,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default Team;

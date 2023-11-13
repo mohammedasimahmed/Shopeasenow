@@ -10,16 +10,17 @@ import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Loader from "../Components/Loader";
 const Browse = () => {
-  const { loggedIn } = useContext(UserContext)
-  const [cardData, setCardData] = useState({})
+  const { loggedIn } = useContext(UserContext);
+  const [cardData, setCardData] = useState([]);
   const [Loading, setLoading] = useState(true);
   const location = useLocation();
+  const [recommendation, setRecommendation] = useState([]);
 
-  const productType = new URLSearchParams(location.search).get('productType');
+  const productType = new URLSearchParams(location.search).get("productType");
 
   const fetchUrl = productType
-    ? `${import.meta.env.VITE_BASE_URL}/api/product/category/?productType=${productType}`
-    : `${import.meta.env.VITE_BASE_URL}/api/product/getAll/`;
+    ? `${import.process.env.meta.VITE_BASE_URL}/api/product/category/?productType=${productType}`
+    : `${import.process.env.meta.VITE_BASE_URL}/api/product/getAll/`;
   const [dataFetched, setDataFetched] = useState(false);
 
   useEffect(() => {
@@ -27,10 +28,10 @@ const Browse = () => {
       try {
         const response = await fetch(fetchUrl, {
           method: "GET",
-          credentials: "include"
+          credentials: "include",
         });
         const data = await response.json();
-        setCardData(data);
+        setCardData((prevCardData) => [...prevCardData, data]);
         console.log(data);
         console.log("Products fetched successfully");
         setLoading(false);
@@ -47,61 +48,65 @@ const Browse = () => {
 
   useEffect(() => {
     if (dataFetched) {
-      // window.location.reload(); 
+      // window.location.reload();
     }
   }, [dataFetched]);
 
   return (
     <>
-      {
-        Loading ?
-          <Loader /> :
-          <div className="flex flex-row gap-3">
-            <Navbar />
-            <Location />
-            <div>
-              <div style={{
+      {Loading ? (
+        <Loader />
+      ) : (
+        <div className="flex flex-row gap-3">
+          <Navbar />
+          <Location />
+          <div>
+            <div
+              style={{
                 width: "100%",
                 height: "500px",
                 margin: "0px",
-                objectFit: "cover"
-              }} className="py-2 px-2">
-                <ImageSlider />
-              </div>
-              <div className="m-4 flex flex-col ">
-                <div className="flex items-center justify-between sm:flex-row">
-                  {
-                    loggedIn && (<Button />)
-                  }
+                objectFit: "cover",
+              }}
+              className="py-2 px-2"
+            >
+              <ImageSlider />
+            </div>
+            <div className="m-4 flex flex-col ">
+              {recommendation.length !== 0 && (
+                <h1 className="p-3 font-semibold text-2xl">
+                  Our Recommendation
+                </h1>
+              )}
+              <div className="flex items-center justify-between sm:flex-row">
+                {loggedIn && <Button />}
 
-                  <Categories />
-                </div>
+                <Categories />
+              </div>
 
-                <hr className="m-1 w-full" />
-              </div>
-              <div>
-                <ul className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                  {cardData.map((data, index) => (
-                    <li key={index} className="m-5">
-                      <CardClothes
-                        productId={data._id}
-                        productName={data.productName}
-                        userName={data.userName}
-                        distance={60}
-                        role={data.productType}
-                        image={data.productImage}
-                        createdAt={data.createdAt}
-                      />
-                    </li>))
-                  }
-                </ul>
-              </div>
+              <hr className="m-1 w-full" />
+            </div>
+            <div>
+              <ul className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                {cardData.map((data, index) => (
+                  <li key={index} className="m-5">
+                    <CardClothes
+                      productId={data._id}
+                      productName={data.productName}
+                      userName={data.userName}
+                      distance={60}
+                      role={data.productType}
+                      image={data.productImage}
+                      createdAt={data.createdAt}
+                    />
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-      }
-
+        </div>
+      )}
     </>
-
   );
 };
 
