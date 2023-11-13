@@ -19,8 +19,8 @@ const Browse = () => {
   const productType = new URLSearchParams(location.search).get("productType");
 
   const fetchUrl = productType
-    ? `${import.process.env.meta.VITE_BASE_URL}/api/product/category/?productType=${productType}`
-    : `${import.process.env.meta.VITE_BASE_URL}/api/product/getAll/`;
+    ? `${"http://localhost:9000"}/api/product/category/?productType=${productType}`
+    : `${"http://localhost:9000"}/api/product/getAll/`;
   const [dataFetched, setDataFetched] = useState(false);
 
   useEffect(() => {

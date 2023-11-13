@@ -43,12 +43,10 @@ axios.interceptors.response.use(
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
     <UserContextProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </UserContextProvider>
-  </React.StrictMode>
 
 );

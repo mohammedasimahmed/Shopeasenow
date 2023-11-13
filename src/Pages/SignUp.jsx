@@ -6,10 +6,9 @@ import ShareSocials from "../Components/ShareSocials";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import '../index.css'
+import "../index.css";
 import Loader from "../Components/Loader";
 import Cookies from "js-cookie";
-
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -18,7 +17,7 @@ const SignUp = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     UserName: "",
@@ -29,53 +28,55 @@ const SignUp = () => {
     confirmPassword: "",
     Number: "",
     latitude: "",
-    longitude: ""
-  })
-
+    longitude: "",
+    role: "user",
+  });
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       setFormData((prevFormData) => ({
-        ...prevFormData, latitude: position.coords.latitude, longitude: position.coords.longitude
-
-      }))
-    })
-  }, [])
+        ...prevFormData,
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+      }));
+    });
+  }, []);
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
-      [name]: value
-    }
-    ))
-  }
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setLoading(true);
-    console.log(formData)
+    console.log(formData);
     try {
-      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/auth/register`, {
-        method: 'POST',
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
+      const response = await fetch(
+        `${import.meta.env.VITE_BASE_URL}/api/auth/register`,
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       if (!response.ok) {
-        console.log("The status code :", response.status)
+        console.log("The status code :", response.status);
         if (response.status === 409) {
-          toast("Email already in use")
+          toast("Email already in use");
         }
         const errorData = await response.json();
         throw new Error(errorData.error);
-
       }
-      const data = await response.json()
-      console.log(data)
-      console.log("The status code :", data.userId)
+      const data = await response.json();
+      console.log(data);
+      console.log("The status code :", data.userId);
       Cookies.set("userId", data.userId);
       Cookies.set("email", data.email);
       navigate(`/verifyemail/${data.userId}`);
@@ -90,15 +91,14 @@ const SignUp = () => {
         confirmPassword: "",
         latitude: "",
         longitude: "",
-      })
-      setError(null)
-
+      });
+      setError(null);
     } catch (error) {
       setError(error.message);
-      console.error(`Error logging the user`, error.message);
-      toast('Error creating an account!', {
+      console.error(`Error in the signing user`, error.message);
+      toast("Error creating an account!", {
         position: toast.POSITION.TOP_RIGHT,
-        className: 'toast-message'
+        className: "toast-message",
       });
     } finally {
       setLoading(false);
@@ -106,10 +106,9 @@ const SignUp = () => {
   };
   return (
     <>
-      {loading
-        ?
+      {loading ? (
         <Loader />
-        :
+      ) : (
         <div className="flex flex-row bg-gray-900">
           <Navbar />
           <section>
@@ -134,8 +133,8 @@ const SignUp = () => {
                   <p className="mb-6 text-lg font-normal text-gray-500 dark:text-[#8D9EC6]">
                     Make a meaningful impact by sharing surplus food with those
                     who need it most. Join SoulShare and be a part of a
-                    compassionate community that`s dedicated to reducing waste and
-                    nourishing lives.
+                    compassionate community that`s dedicated to reducing waste
+                    and nourishing lives.
                   </p>
                   <NavLink
                     to="/"
@@ -170,10 +169,11 @@ const SignUp = () => {
                   <div className="text-2xl font-bold tex-gray-900 dark:text-white sm:w-[100%]">
                     <h2>Sign up to SoulShare</h2>
                   </div>
-                  <form onSubmit={handleSubmit}
+                  <form
+                    onSubmit={handleSubmit}
                     method="POST"
-                    className="mt-8 space-y-5">
-
+                    className="mt-8 space-y-5"
+                  >
                     <div className="flex flex-row justify-between flex flex-col space-y-4 sm:flex-row sm:justify-center  sm:space-y-0 sm:space-x-4">
                       <div className=" sm:w-[100%] md:w-[50%] lg:w-[50%]">
                         <label
@@ -386,9 +386,7 @@ const SignUp = () => {
           </section>
           <ShareSocials />
         </div>
-
-      }
-
+      )}
     </>
   );
 };
