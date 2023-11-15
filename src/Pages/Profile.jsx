@@ -20,7 +20,7 @@ const Profile = () => {
     const [loadingCardData, setLoadingCardData] = useState(true);
     const [location, setLocation] = useState({});
     const [modalOpen, setModalOpen] = useState(false);
-    const [cardData, setCardData] = useState({})
+    const [cardData, setCardData] = useState([])
     const close = () => setModalOpen(false);
     const open = () => setModalOpen(true);
 
@@ -44,9 +44,9 @@ const Profile = () => {
 
     const fetchWeatherData = async () => {
         try {
-            if (userData.data.latitude && userData.data.longitude) {
+            if (userData.data?.latitude && userData.data?.longitude) {
                 const weatherResponse = await fetch(
-                    `${API_endpoint}lat=${userData.data.latitude}&lon=${userData.data.longitude}&exclude=hourly,daily&appid=${import.meta.env.VITE_API_KEY}`
+                    `${API_endpoint}lat=${userData.data?.latitude}&lon=${userData.data?.longitude}&exclude=hourly,daily&appid=${import.meta.env.VITE_API_KEY}`
                 );
                 const weatherData = await weatherResponse.json();
                 setLocation({
@@ -72,7 +72,9 @@ const Profile = () => {
                 credentials: "include"
             })
             const data = await response.json()
-            setCardData(data);
+            console.log("hi")
+            console.log(data)
+            setCardData([...cardData,data])
             console.log(data)
         } catch (error) {
             console.log("Error", error.message)
@@ -115,39 +117,26 @@ const Profile = () => {
                         <div className='p-3 flex flex-row items-start bg-gray-900'>
                             <div className='bg-gray-900 p-3 border-b-4 border-green-400 max-w-sm'>
                                 <div className='image overtflow-hidden'>
-                                    {userData.data.image.startsWith("https://api.dicebear.com/5.x/initials/svg?seed") ? (
+                                    {userData.data?.image.startsWith("https://api.dicebear.com/5.x/initials/svg?seed") ? (
                                         <img
                                             className="h-auto w-full mx-auto"
-                                            src={userData.data.image}
+                                            src={userData.data?.image}
                                             alt="profile"
                                         />
                                     ) : (
                                         <img
                                             className="h-auto w-full mx-auto"
-                                            src={`data:image/png;base64,${userData.data.image}`}
+                                            src={`data:image/png;base64,${userData.data?.image}`}
                                             alt="profile"
                                         />
-                                    )}
-                                    <div className='bg-gray-900 p-3 border-b-4 border-green-400 max-w-sm'>
-                                        <div className='image overflow-hidden'>
-                                            {userData.data.image.startsWith("data:image/png;base64,") ||
-                                                userData.data.image.startsWith("https://api.dicebear.com/5.x/initials/svg?seed") ? (
-                                                <img
-                                                    className="h-auto w-full mx-auto"
-                                                    src={userData.data.image}
-                                                    alt="profile"
-                                                />
-                                            ) : (
-                                                <p>No image available</p>
-                                            )}
-                                        </div>
-                                    </div>
+                                    )
+                                    }
 
 
                                 </div>
-                                {(userData.data.email === 'bannu1302@gmail.com' || userData.data.email === 'dheeravathshishiro@gmail.com' || userData.data.email === 'lcs2022014@iiitl.ac.in') ? (
+                                {(userData.data?.email === 'bannu1302@gmail.com' || userData.data?.email === 'dheeravathshishiro@gmail.com' || userData.data?.email === 'lcs2022014@iiitl.ac.in') ? (
                                     <>
-                                        <h1 className='uppercase text-white font-semibold text-xl leading-8 my-1'>{userData.data.UserName}</h1>
+                                        <h1 className='uppercase text-white font-semibold text-xl leading-8 my-1'>{userData.data?.UserName}</h1>
                                         <h3 className="text-white font-lg text-semibold leading-6">CEO of Soulshare</h3>
                                         <p className="text-sm text-slate-200 hover:text-white leading-6">
                                             Hi there! I'm Shishiro, and welcome to my personal project. Soulshare is a platform where people can come together to share their passions, creativity, and knowledge. Whether you're into fashion, food, or other exciting endeavors, this space is for you. Join our vibrant community and explore a world of endless possibilities. Let's inspire, connect, and grow together!
@@ -155,7 +144,7 @@ const Profile = () => {
                                     </>
                                 )
                                     :
-                                    <h1 className='uppercase text-white font-semibold text-xl leading-8 my-1'>{userData.data.UserName}</h1>
+                                    <h1 className='uppercase text-white font-semibold text-xl leading-8 my-1'>{userData.data?.UserName}</h1>
 
                                 }
                                 <div className="m-1">
@@ -190,25 +179,25 @@ const Profile = () => {
                                         <div className="grid md:grid-cols-2 text-sm">
                                             <div className="grid grid-cols-2">
                                                 <div className="px-4 py-2 font-semibold">First Name</div>
-                                                <div className="px-4 py-2 capitalize">{userData.data.firstName}</div>
+                                                <div className="px-4 py-2 capitalize">{userData.data?.firstName}</div>
                                             </div>
                                             <div className="grid grid-cols-2">
                                                 <div className="px-4 py-2 font-semibold">Last Name</div>
-                                                <div className="px-4 py-2 capitalize">{userData.data.lastName}</div>
+                                                <div className="px-4 py-2 capitalize">{userData.data?.lastName}</div>
                                             </div>
                                             <div className="grid grid-cols-2">
                                                 <div className="px-4 py-2 font-semibold">Contact No.</div>
-                                                <div className="px-4 py-2 capitalize">+91 {userData.data.Number}</div>
+                                                <div className="px-4 py-2 capitalize">+91 {userData.data?.Number}</div>
                                             </div>
                                             <div className="grid grid-cols-2">
                                                 <div className="px-4 py-2 font-semibold">Email.</div>
                                                 <div className="px-4 py-2">
-                                                    <a className="text-blue-800 " href={userData.data.email}>{userData.data.email}</a>
+                                                    <a className="text-blue-800 " href={userData.data?.email}>{userData.data?.email}</a>
                                                 </div>
                                             </div>
                                             <div className="grid grid-cols-2">
                                                 <div className="px-4 py-2 font-semibold">Joined on</div>
-                                                <div className="px-4 py-2 select-all">{formatDate(userData.data.createdAt)}</div>
+                                                <div className="px-4 py-2 select-all">{formatDate(userData.data?.createdAt)}</div>
                                             </div>
                                             <div className="grid grid-cols-2">
                                                 <div className="px-4 py-2 font-semibold">Birthday</div>
@@ -222,7 +211,7 @@ const Profile = () => {
                                                         <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill" />
                                                     </svg>
                                                     :
-                                                    <div className="px-4 py-2">{location.weather.city},{location.weather.country}</div>
+                                                    <div className="px-4 py-2">{location.weather?.city},{location.weather?.country}</div>
                                                 }
                                                 {/* <div className='px-4 py-2'> india</div> */}
                                             </div>
@@ -255,7 +244,7 @@ const Profile = () => {
                                             loadingCardData ? <Loader /> :
                                                 <div className='overflow-auto max-h-[300px]'>
                                                     <ul className="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-                                                        {cardData.map((data, index) => (
+                                                        {cardData?.map((data, index) => (
                                                             <li key={index} className="m-5">
                                                                 <CardClothes
                                                                     userName={data.userName}
