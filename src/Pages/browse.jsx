@@ -61,7 +61,7 @@ const Browse = () => {
           <Navbar />
           <Location />
           <div>
-            <div
+            {/* <div
               style={{
                 width: "100%",
                 height: "500px",
@@ -71,7 +71,7 @@ const Browse = () => {
               className="py-2 px-2"
             >
               <ImageSlider />
-            </div>
+            </div> */}
             <div className="m-4 flex flex-col ">
               {recommendation.length !== 0 && (
                 <h1 className="p-3 font-semibold text-2xl">

@@ -108,13 +108,13 @@ const Profile = () => {
             {loadingUser ?
                 <Loader />
                 :
-                <div className='flex flex-row justify-between bg-gray-900' >
+                <div className='flex flex-row justify-between' >
                     <Navbar />
                     <div>
                         <div className='p-4 '>
                             <h2 className='text-lg font-semibold tracking-widest uppercase rounded-lg focus:outline-none focus:shadow-outline'>Profile</h2>
                         </div>
-                        <div className='p-3 flex flex-row items-start bg-gray-900'>
+                        <div className='p-3 flex flex-row items-start'>
                             <div className='bg-gray-900 p-3 border-b-4 border-green-400 max-w-sm'>
                                 <div className='image overtflow-hidden'>
                                     {userData.data?.image.startsWith("https://api.dicebear.com/5.x/initials/svg?seed") ? (
@@ -163,7 +163,7 @@ const Profile = () => {
 
 
                             </div>
-                            <div className="mx-5 bg-gray-900 p-3 shadow-sm rounded-sm ">
+                            <div className="mx-5 p-3 shadow-sm rounded-sm ">
                                 <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 text-white">
                                     <span className="text-green-500">
                                         <svg className="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -199,11 +199,11 @@ const Profile = () => {
                                                 <div className="px-4 py-2 font-semibold">Joined on</div>
                                                 <div className="px-4 py-2 select-all">{formatDate(userData.data?.createdAt)}</div>
                                             </div>
-                                            <div className="grid grid-cols-2">
+                                            {/* <div className="grid grid-cols-2">
                                                 <div className="px-4 py-2 font-semibold">Birthday</div>
                                                 <div className="px-4 py-2">NA</div>
-                                            </div>
-                                            <div className="grid grid-cols-2">
+                                            </div> */}
+                                            {/* <div className="grid grid-cols-2">
                                                 <div className="px-4 py-2 font-semibold">Location</div>
                                                 {loadingWeather ?
                                                     <svg aria-hidden="true" className="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -213,11 +213,11 @@ const Profile = () => {
                                                     :
                                                     <div className="px-4 py-2">{location.weather?.city},{location.weather?.country}</div>
                                                 }
-                                                {/* <div className='px-4 py-2'> india</div> */}
-                                            </div>
+                                                <div className='px-4 py-2'> india</div>
+                                            </div> */}
                                         </div>
                                     </div>
-                                    <div>
+                                    {/* <div>
                                         <ul >
                                             <li className="inline-block text-[35px] ml-[10px] px-[0px] py-[10px] list-none after:block after:content-[''] after:z-[-1] after:h-[10px] after:border-b-[1px] after:border-[#00FFFF] after:border-solid after:scale-x-[0] after:ease-in-out after:duration-300 after:transition-[transform] hover:after:scale-x-[1] hover:after:translate-y-[-15px] hover:after:translate-x-[14px] hover:after:bg-[#37FF8B] hover:after:z-[-1] hover:after:opacity-[0.3] hover:after:scale-x-[1] hover:after:translate-y-[-15px] hover:after:translate-x-[14px] hover:after:bg-[#37FF8B] hover:after:z-[-1] hover:after:opacity-[0.3]">
                                                 <NavLink
@@ -258,7 +258,7 @@ const Profile = () => {
                                                 </div>
 
                                         }
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>

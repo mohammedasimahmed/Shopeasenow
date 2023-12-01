@@ -207,10 +207,10 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/verifyemail/:userId/" element={<OtpBox />} />
-          <Route path="/browse" element={<Browse />} />
           <Route path="/card/:productId" element={<CardPage />} />
           <Route path="*" element={<PageNotFound />} />
           <Route element={<PrivateRoutes />}>
+            <Route path="/browse" element={<Browse />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/cart" element={<Cart />} />
             <Route
@@ -241,8 +241,8 @@ function App() {
                 )
               }
             />
+            <Route path="/services" element={<Services />} />
           </Route>
-          <Route path="/services" element={<Services />} />
           <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </Suspense>

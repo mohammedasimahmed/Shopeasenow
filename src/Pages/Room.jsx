@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import Navbar from "../Components/Navbar";
 
 const Room = ({ room, playVideo, handleSubmit, videoRef1, stopVideo ,startVideo }) => {
   useEffect(() => {
@@ -12,6 +13,7 @@ const Room = ({ room, playVideo, handleSubmit, videoRef1, stopVideo ,startVideo 
 
   return (
     <>
+    <Navbar />
       <center>
         <h1 className="text font-bold text-lg">In Room {room}</h1>
       </center>
