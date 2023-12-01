@@ -26,15 +26,9 @@ const Admin = () => {
     <>
       <Navbar />
       <button onClick={getAllUsers}>getAllUsers</button>
-      {
-        allUsers.map((user)=>{
-          return(
-            <div>
-              {user.UserName}
-            </div>
-          )
-        })
-      }
+      {allUsers.map((user) => {
+        return <div>{user.UserName}</div>;
+      })}
     </>
   );
 };

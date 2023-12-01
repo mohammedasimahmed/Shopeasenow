@@ -181,20 +181,25 @@ export const addComment = async (req, res) => {
 export const category = async (req, res) => {
   try {
     const productType = req.query.productType;
+    let products;
 
-    const query = {};
-    if (productType) {
-      query.productType = productType;
-    }
+    if (req.query.productType === "Allproducts") {
+      products = await Product.find();
+    } else {
+      const query = {};
+      if (productType) {
+        query.productType = productType;
+      }
 
-    const products = await Product.find(query)
-      .sort({ createdAt: -1 })
-      .lean()
-      .exec();
-    if (products.length === 0) {
-      return res
-        .status(404)
-        .json({ message: "No products found for this user" });
+      products = await Product.find(query)
+        .sort({ createdAt: -1 })
+        .lean()
+        .exec();
+      if (products.length === 0) {
+        return res
+          .status(404)
+          .json({ message: "No products found for this user" });
+      }
     }
     return res.status(200).send(products);
   } catch (error) {

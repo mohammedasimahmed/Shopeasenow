@@ -1,7 +1,6 @@
 import CardClothes from "../Components/CardClothes";
 import ImageSlider from "../Components/ImageSlider";
 import Navbar from "../Components/Navbar";
-import Button from "../Components/modal/button";
 import Location from "../Components/location";
 import Categories from "../Components/categories";
 import { toast } from "react-toastify";
@@ -12,6 +11,7 @@ import Loader from "../Components/Loader";
 const Browse = () => {
   const { loggedIn } = useContext(UserContext);
   const [cardData, setCardData] = useState([]);
+  const [allproducts, setAllProducts] = useState([]);
   const [Loading, setLoading] = useState(true);
   const location = useLocation();
   const [recommendation, setRecommendation] = useState([]);
@@ -31,8 +31,9 @@ const Browse = () => {
           credentials: "include",
         });
         const data = await response.json();
-        setCardData((prevCardData) => [...prevCardData, data]);
-        console.log(data);
+        setCardData([...data]);
+        setAllProducts([...data]);
+        // console.log(data);
         console.log("Products fetched successfully");
         setLoading(false);
         setDataFetched(true);
@@ -45,6 +46,15 @@ const Browse = () => {
 
     fetchData();
   }, []);
+
+  function filterProducts(productType){
+    setCardData(
+      allproducts.filter((item)=>item.productType===productType)
+    )
+    // console.log(allproducts)
+    // console.log(productType+ allproducts.filter((item)=>item.productType===productType))
+  }
+  // filterProducts("AllProducts")
 
   useEffect(() => {
     if (dataFetched) {
@@ -79,29 +89,29 @@ const Browse = () => {
                 </h1>
               )}
               <div className="flex items-center justify-between sm:flex-row">
-                {loggedIn && <Button />}
+                {/* {loggedIn && <Button />} */}
 
-                <Categories />
+                <Categories filterProducts={filterProducts } />
               </div>
 
               <hr className="m-1 w-full" />
             </div>
             <div>
-              <ul className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                {cardData.map((data, index) => (
-                  <li key={index} className="m-5">
-                    <CardClothes
-                      productId={data._id}
-                      productName={data.productName}
-                      userName={data.userName}
-                      distance={60}
-                      role={data.productType}
-                      image={data.productImage}
-                      createdAt={data.createdAt}
-                    />
-                  </li>
-                ))}
-              </ul>
+              <div className="flex">
+                {cardData &&
+                  cardData?.map((data, index) => {
+                    console.log(cardData)
+                    return (
+                      <div>
+                        <img
+                          className="w-96 h-96"
+                          src={`data:image/png;base64,${data.productImage}`}
+                          alt=""
+                        />
+                      </div>
+                    );
+                  })}
+              </div>
             </div>
           </div>
         </div>
