@@ -197,6 +197,7 @@ const Modal = ({ handleClose }) => {
               >
                 Add Item
               </button>
+              {console.log("formData", formData)}
               <button
                 onClick={handleClose}
                 className="px-5 py-3 text-base font-semibold text-center text-white bg-[#51D6FF] rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300  dark:bg-[#51D6FF] dark:hover:bg-[#37FF8B] dark:focus:ring-blue-800 transition duration-500 ease-in-out"
