@@ -93,13 +93,13 @@ const CardClothes = (props) => {
               {userData.productName}
             </NavLink>
           </div>
-          {userData.role === "Food" ? (
+          {/* {userData.role === "Food" ? (
             <>
               <div className="text-center rounded-lg">{`${time.hours}:${time.minutes}:${time.seconds}`}</div>
             </>
           ) : (
             <></>
-          )}
+          )} */}
 
           <div id="Profile" className="flex items-center">
 
@@ -150,7 +150,7 @@ const CardClothes = (props) => {
           type="submit"
           className=" w-full px-5 py-3 text-base font-semibold text-center text-white bg-[#51D6FF] rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 sm:w-[100%] lg:w-[100%] dark:bg-[#51D6FF] dark:hover:bg-[#37FF8B] dark:focus:ring-blue-800 transition duration-500 ease-in-out"
         >
-          Interested
+          Add to Cart
         </motion.button>
 
 

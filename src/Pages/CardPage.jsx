@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import CardClothes from '../Components/CardClothes';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { useParams, useLocation, useHistory } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import Loader from '../Components/Loader';
 import Cookies from 'js-cookie';
 
@@ -129,10 +129,7 @@ const CardPage = () => {
         <div className='flex flex-row bg-gray-800  '>
             <Navbar />
             <div className="antialiased bg-gray-800 overflow-x-auto max-w-screen-xl mx-auto">
-                <motion.div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6" initial={{ opacity: 0, y: -100 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 0.2 }}
-                >
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
                     <h1 className='text-xl m-5 inline-flex items-center justify-center rounded-lg cursor-pointer bg-[#51D6FF]  hover:bg-[#37FF8B] p-3 '>
                         <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="24" fill='#fff'>
                             <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
@@ -160,7 +157,7 @@ const CardPage = () => {
                                     type="submit"
                                     className="dark:hover:bg-[#37FF8B] dark:focus:ring-blue-800 transition duration-500 ease-in-out h-14 px-6 py-2 font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white dark:bg-[#51D6FF]"
                                 >
-                                    Interested
+                                    Add to cart
                                 </motion.button>
                             </div>
                         </div>
@@ -239,7 +236,7 @@ const CardPage = () => {
                             </div>
                         </section>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </div >
 
