@@ -208,9 +208,9 @@ function App() {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/verifyemail/:userId/" element={<OtpBox />} />
           <Route path="/card/:productId" element={<CardPage />} />
-          <Route path="/browse" element={<Browse />} />
           <Route path="*" element={<PageNotFound />} />
           <Route element={<PrivateRoutes />}>
+            <Route path="/browse" element={<Browse />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/cart" element={<Cart />} />
             <Route

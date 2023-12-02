@@ -1,7 +1,10 @@
 import Cart from "../models/Cart.js";
 
 export const addToCart = async (req, res) => {
+  console.log("hello")  
   const { userId, cartProduct ,quantity } = req.body;
+
+  console.log(req.body)
 
   const cart = await Cart.create({
     userId,
