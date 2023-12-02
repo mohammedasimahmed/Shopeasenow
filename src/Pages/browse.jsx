@@ -7,6 +7,8 @@ import UserContext from "../context/UserContext";
 import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Loader from "../Components/Loader";
+import Button from "../Components/modal/button";
+
 
 const Browse = () => {
   const { loggedIn } = useContext(UserContext);

@@ -54,6 +54,21 @@ export const deleteCart = async (req, res) => {
   }
 };
 
+export const deleteAllItems = async (req, res) => {
+  const { userId } = req.body;
+
+  try {
+    const result = await Cart.deleteMany({ userId: userId });
+    if (result.deletedCount === 0) {
+      return res.status(404).json({ message: 'No items found in the cart for the given user' });
+    }
+    return res.status(200).json({ message: 'All items deleted successfully' });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
+
 const displayCart = async (req, res) => {
   const { userId } = req.params;
   try {
