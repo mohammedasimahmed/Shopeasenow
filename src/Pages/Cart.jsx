@@ -11,9 +11,8 @@ import Cookies from "js-cookie";
 
 
 const Browse = () => {
-  const [cardData, setCardData] = useState([]);
-  const [allProducts, setAllProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [cartData, setCartData] = useState([])
   const location = useLocation();
 
   const productType = new URLSearchParams(location.search).get("productType");
@@ -25,35 +24,22 @@ const Browse = () => {
   const [dataFetched, setDataFetched] = useState(false);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(fetchUrl, {
-          method: "GET",
-          credentials: "include",
-        });
-        const data = await response.json();
-        setCardData([...data]);
-        setAllProducts([...data]);
-        setLoading(false);
-        setDataFetched(true);
-        console.log("This is the data", cardData)
-      } catch (error) {
-        console.error("Error", error.message);
-        toast.error(error.message);
-        setLoading(false);
-      }
-    };
-
-    fetchData();
+    displayCart();
   }, [fetchUrl]);
 
   const displayCart = async () => {
-    const fetchproduct = `${import.meta.env.VITE_BASE_URL}/api/cart/${Cookies.get("userId")}`
-
+    const fetchproduct = `${import.meta.env.VITE_BASE_URL}/api/cart/display/${Cookies.get("userId")}`
     try {
-      const response = await fetch(fetchproduct)
-      const data = response.json()
-      console.log("This is data", data)
+      const response = await fetch(fetchproduct, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const data = await response.json()
+      setCartData(data)
+      setLoading(false)
+      setDataFetched(true)
     } catch (error) {
       console.error("Error", error.message)
       toast.error(error.message)
@@ -81,9 +67,7 @@ const Browse = () => {
 
 
   const handleCheckout = () => {
-    setCardData([])
-    setAllProducts([])
-
+    setCartData([])
   }
 
   return (
@@ -103,7 +87,7 @@ const Browse = () => {
             </div>
             <div>
               <ul className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                {cardData.map((data, index) => (
+                {cartData.cartItems.map((data, index) => (
                   <li key={index} className="m-5">
                     <div
                       id="Card"
@@ -111,7 +95,7 @@ const Browse = () => {
                     >
                       <div className="w-[100%] h-[300px] overflow-hidden object-cover">
                         <img
-                          src={`data:image/png;base64,${data.productImage}`}
+                          src={`data:image/png;base64,${data.cartImage}`}
                           alt=""
                           width="500"
                           height="600"
@@ -121,13 +105,7 @@ const Browse = () => {
                       <div id="Details">
                         <div className="flex justify-between items-center mx-2 my-1">
                           <div>
-                            <NavLink
-                              to={`/card/${data._id}?productType=${data.role}`}
-                              className="inline-flex items-center"
-                            >
-                              {data.productName}
-                            </NavLink>
-
+                            {data.cartProduct}
                           </div>
                           <div id="Profile" className="flex items-center">
                             <button>
@@ -160,7 +138,7 @@ const Browse = () => {
               </Link>
             </button>
           </div>
-        </div>
+        </div >
       )}
     </>
   );

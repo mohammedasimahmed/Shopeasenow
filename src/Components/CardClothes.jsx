@@ -17,12 +17,12 @@ const CardClothes = (props) => {
   async function addToCart() {
     try {
       const userId = Cookies.get("userId");
-      const { productName } = props;
+      const { productName, image } = props;
       console.log("This is the props", props)
       console.log("This is the userid")
       const resp = await axios.post(
         `${import.meta.env.VITE_BASE_URL}/api/cart/${userId}`,
-        { userId, cartProduct: productName, quantity: 1 }
+        { userId, cartProduct: productName, cartImage: image, quantity: 1 }
       );
       console.log("This is the response data", resp.data);
     } catch (error) {

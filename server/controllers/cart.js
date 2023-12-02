@@ -1,11 +1,12 @@
 import Cart from "../models/Cart.js";
 
 export const addToCart = async (req, res) => {
-  const { userId, cartProduct, quantity } = req.body;
+  const { userId, cartProduct, quantity, cartImage } = req.body;
   const cart = await Cart.create({
     userId,
     cartProduct,
-    quantity
+    quantity,
+    cartImage,
   });
 
   await cart.save();
@@ -54,15 +55,12 @@ export const deleteCart = async (req, res) => {
 };
 
 const displayCart = async (req, res) => {
-  const { userId } = req.query;
-
+  const { userId } = req.params;
   try {
     const cartItems = await Cart.find({ userId: userId });
     if (!cartItems || cartItems.length === 0) {
       return res.status(404).json({ message: 'Cart is empty' });
     }
-    console.log("This is the cartItems", cartItems)
-
     return res.status(200).json({ cartItems });
   } catch (error) {
     console.error(error);

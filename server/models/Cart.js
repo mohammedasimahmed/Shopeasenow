@@ -1,15 +1,17 @@
 import mongoose from "mongoose";
-
 const cartSchema = mongoose.Schema(
     {
-        userId:{
-            type:String
+        userId: {
+            type: String
         },
-        cartProduct:{
-            type:String
+        cartProduct: {
+            type: String
         },
-        quantity:{
-            type:Number
+        quantity: {
+            type: Number
+        },
+        cartImage: {
+            type: String,
         }
     }
 )
