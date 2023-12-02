@@ -13,16 +13,6 @@ const Services = () => {
         <div
           className="flex flex-col w-72 h-60 cursor-pointer items-center justify-center text-center"
           style={{ border: "1px solid white" }}
-          onClick={() => navigate("/emailSpamDetection")}
-        >
-          <Mail size={48} color="#4CAF50" />
-          <h1 style={{ fontSize: "1.5rem" }} className="font-semibold mt-2">
-            Email Spam Detection
-          </h1>
-        </div>
-        <div
-          className="flex flex-col w-72 h-60 cursor-pointer items-center justify-center text-center"
-          style={{ border: "1px solid white" }}
           onClick={() => navigate("/videoCall")}
         >
           <Phone size={48} color="#4CAF50" />

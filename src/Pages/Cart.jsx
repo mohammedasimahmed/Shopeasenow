@@ -37,6 +37,7 @@ const Browse = () => {
         },
       });
       const data = await response.json()
+      console.log(data.cartItems)
       setCartData(data)
       setLoading(false)
       setDataFetched(true)
@@ -87,7 +88,10 @@ const Browse = () => {
             </div>
             <div>
               <ul className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                {cartData.cartItems.map((data, index) => (
+
+                
+
+                {cartData.cartItems && (cartData?.cartItems.map((data, index) => (
                   <li key={index} className="m-5">
                     <div
                       id="Card"
@@ -127,7 +131,7 @@ const Browse = () => {
 
                     </div>
                   </li>
-                ))}
+                )))}
               </ul>
             </div>
             <button className="mb-3 w-full px-5 py-3 text-base font-semibold text-center text-white bg-[#51D6FF] rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 sm:w-[100%] lg:w-[100%] dark:bg-[#51D6FF] dark:hover:bg-[#37FF8B] dark:focus:ring-blue-800 transition duration-500 ease-in-out"
