@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "../Components/Navbar";
 import { useNavigate } from "react-router";
 import { Mail, Phone } from "react-feather";

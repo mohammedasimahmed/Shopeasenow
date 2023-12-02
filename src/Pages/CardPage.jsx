@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import CardClothes from '../Components/CardClothes';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, useHistory } from 'react-router-dom';
 import Loader from '../Components/Loader';
 import Cookies from 'js-cookie';
 

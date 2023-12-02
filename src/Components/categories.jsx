@@ -64,5 +64,6 @@ const Categories = () => {
                 </NavLink>
             </li>
         </ul>
-
+    )
+}
 export default Categories;
