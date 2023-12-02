@@ -12,7 +12,7 @@ export const LikeEmail = async (email, userName, productUserName, productName) =
         });
 
         const subject = `${userName} added a new product that you liked`;
-        const text = `Hello ${userName},\n\n${productUserName} has added a new product "${productName}" that you liked on SoulShare.`;
+        const text = `Hello ${userName},\n\n${productUserName} has added a new product "${productName}" that you liked on Shopeasenow.`;
         const html = `
             <html>
                 <body style="font-family: Arial, sans-serif; background-color: #f2f2f2; margin: 0; padding: 0;">
@@ -24,7 +24,7 @@ export const LikeEmail = async (email, userName, productUserName, productName) =
                                     <tr>
                                         <td>
                                             <div style="text-align: center;">
-                                               <h1 style="color: rgb(8, 32, 169); user-select: none;">SOULSHARE</h1>
+                                               <h1 style="color: rgb(8, 32, 169); user-select: none;">SHOPEASENOW</h1>
                                             </div>
                                         </td>
                                     </tr>
@@ -32,7 +32,7 @@ export const LikeEmail = async (email, userName, productUserName, productName) =
                                         <td>
                                             <p style="font-size: 18px; color: #333333;">Hello,</p>
                                             <p style="font-size: 16px; color: #666666;">
-                                                ${userName} has added a new product "${productName}" that you liked on SoulShare.
+                                                ${userName} has added a new product "${productName}" that you liked on Shopeasenow.
                                             </p>
                                             <p style="font-size: 16px; color: #666666;">To unsubscribe from these notifications, click <a href="#">here</a>.</p>
                                         </td>
@@ -52,7 +52,7 @@ export const LikeEmail = async (email, userName, productUserName, productName) =
         `;
 
         const mailOptions = {
-            from: `'SoulShare || by SHISHIRO' <${process.env.USER}>`,
+            from: `'SHOPEASENOW || by SHISHIRO' <${process.env.USER}>`,
             to: email,
             subject,
             text,

@@ -137,7 +137,7 @@ const Profile = () => {
                                 {(userData.data?.email === 'bannu1302@gmail.com' || userData.data?.email === 'dheeravathshishiro@gmail.com' || userData.data?.email === 'lcs2022014@iiitl.ac.in') ? (
                                     <>
                                         <h1 className='uppercase text-white font-semibold text-xl leading-8 my-1'>{userData.data?.UserName}</h1>
-                                        <h3 className="text-white font-lg text-semibold leading-6">CEO of Soulshare</h3>
+                                        <h3 className="text-white font-lg text-semibold leading-6">CEO of Shopeasenow</h3>
                                         <p className="text-sm text-slate-200 hover:text-white leading-6">
                                             Hi there! I'm Shishiro, and welcome to my personal project. Soulshare is a platform where people can come together to share their passions, creativity, and knowledge. Whether you're into fashion, food, or other exciting endeavors, this space is for you. Join our vibrant community and explore a world of endless possibilities. Let's inspire, connect, and grow together!
                                         </p>

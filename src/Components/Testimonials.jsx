@@ -31,11 +31,11 @@ export default function Testimonials() {
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             <div className="border border-gray-300 rounded-lg p-6">
               <p className="text-gray-700 mb-4">
-                `SoulShare has made a significant impact in my community. The
+                `Shopeasenow has made a significant impact in my community. The
                 platform`s innovative approach to connecting people in need with
                 those who can help is truly inspiring. I`ve witnessed lives
                 being transformed through acts of kindness facilitated by
-                SoulShare`
+                Shopeasenow`
               </p>
               <div className="flex items-center space-x-3">
                 <img
@@ -51,10 +51,10 @@ export default function Testimonials() {
 
             <div className="border border-gray-300 rounded-lg p-6">
               <p className="text-gray-700 mb-4">
-                `SoulShare`s platform has given me the opportunity to make a
+                `Shopeasenow`s platform has given me the opportunity to make a
                 real difference in the lives of others. I`ve been able to donate
                 clothing and essentials to families in need, and the whole
-                process has been seamless and rewarding. Thank you, SoulShare!`
+                process has been seamless and rewarding. Thank you, Shopeasenow!`
               </p>
               <div className="flex items-center space-x-3">
                 <img
@@ -64,14 +64,13 @@ export default function Testimonials() {
                 />
                 <div>
                   <p className="font-semibold text-gray-900">modal tharun</p>
-                  {/* <p className="text-gray-600">SoulShare Beneficiary</p> */}
                 </div>
               </div>
             </div>
 
             <div className="border border-gray-300 rounded-lg p-6">
               <p className="text-gray-700 mb-4">
-                `I`ve had the privilege of being a part of the SoulShare
+                `I`ve had the privilege of being a part of the Shopeasenow
                 community since its inception. The impact it has made on
                 bridging gaps and fostering connections is truly remarkable.
                 It`s heartwarming to see people coming together to support one

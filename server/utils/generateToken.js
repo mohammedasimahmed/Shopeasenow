@@ -7,7 +7,7 @@ export const AccessToken = (userId) => {
     const secret = process.env.SECRET_KEY
     const options = {
       expiresIn: "20m",
-      issuer: "soulshare",
+      issuer: "shopeasenow",
       audience: userId.toString()
     }
     jwt.sign(payload, secret, options, (err, token) => {
@@ -38,7 +38,7 @@ export const RefreshToken = (userId) => {
     const secret = process.env.REFRESH_KEY
     const options = {
       expiresIn: "30d",
-      issuer: "soulshare",
+      issuer: "shopeasenow",
       audience: userId.toString()
     }
     jwt.sign(payload, secret, options, (err, token) => {

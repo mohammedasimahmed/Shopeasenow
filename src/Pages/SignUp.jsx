@@ -116,7 +116,7 @@ const SignUp = () => {
               <div className="py-4 px-4 mx-auto max-w-[100%]  lg:py-4 grid lg:grid-cols-2 gap-8 lg:gap-6">
                 <div className="flex flex-col justify-center">
                   <h3 className="text-4xl font-bold text-gray-600 mb-4 text-4xl  tracking-tight leading-none text-gray-900 md:text-5xl lg:text-4xl dark:text-[white]">
-                    Join SoulShare: <br />
+                    Join ShopEaseNow: <br />
                     <span className="text-4xl font-bold text-gray-600 mb-4 text-4xl  tracking-tight leading-none text-gray-900 md:text-5xl lg:text-4xl dark:text-[#51D6FF]">
                       {" "}
                       <Typewriter
@@ -132,7 +132,7 @@ const SignUp = () => {
                   </h3>
                   <p className="mb-6 text-lg font-normal text-gray-500 dark:text-[#8D9EC6]">
                     Make a meaningful impact by sharing surplus food with those
-                    who need it most. Join SoulShare and be a part of a
+                    who need it most. Join Shopeasenow and be a part of a
                     compassionate community that`s dedicated to reducing waste
                     and nourishing lives.
                   </p>
@@ -167,7 +167,7 @@ const SignUp = () => {
                 </div>
                 <div className="w-full lg:max-w-xl p-6 space-y-6 sm:p-8 bg-white rounded-lg shadow-xl dark:bg-gray-800 ">
                   <div className="text-2xl font-bold tex-gray-900 dark:text-white sm:w-[100%]">
-                    <h2>Sign up to SoulShare</h2>
+                    <h2>Sign up to shopeasenow</h2>
                   </div>
                   <form
                     onSubmit={handleSubmit}
