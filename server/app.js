@@ -9,6 +9,7 @@ import connectDB from "./config/Config.js";
 import { logger } from "./middleware/logger.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 import userRoutes from "./routes/UserRoutes.js";
+import cartRoutes from "./routes/cartRoutes.js"
 import otpRoutes from "./routes/OtpRoutes.js";
 import productRoutes from "./routes/ProductRoutes.js";
 import multer from "multer";
@@ -78,6 +79,7 @@ app.post("/api/auth/product/:id", upload.single("productImage"), createProduct);
 app.use("/api/auth", userRoutes);
 app.use("/api/auth/otp", otpRoutes);
 app.use("/api/product/", productRoutes);
+app.use("/api/cart/", cartRoutes);
 app.use(multerErrorHandler);
 
 // app.post("/api/createProduct", upload.single("image"), createProduct);
